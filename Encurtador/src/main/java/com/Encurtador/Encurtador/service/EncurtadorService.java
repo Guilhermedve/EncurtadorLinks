@@ -1,5 +1,7 @@
 package com.Encurtador.Encurtador.service;
 
+
+
 import org.springframework.stereotype.Service;
 
 import com.Encurtador.Encurtador.model.UrlInfo;
@@ -10,22 +12,18 @@ import lombok.AllArgsConstructor;
 @Service
 @AllArgsConstructor
 public class EncurtadorService {
-
-private RepositoryInterface repository; 
-private GeradorDeCodigo gerador; 
+private final GeradorDeCodigo gerador;
+private final RepositoryInterface repository; 
 
 public String encurtarCodigo(UrlInfo urlInfo){ 
 
-String codigo = GeradorDeCodigo.Gerador(urlInfo);
-
+String codigo = GeradorDeCodigo.Gerar();
 urlInfo.setCodigoGerado(codigo);
 repository.save(urlInfo);
-
-
-
-
-
 return codigo;
 }
 
+public boolean buscarUrlCodigo(String codigo){
+return repository.existeCodigo(codigo);
+}
 }
