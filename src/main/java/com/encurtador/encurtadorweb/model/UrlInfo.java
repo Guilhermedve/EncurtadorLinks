@@ -5,14 +5,11 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
-
-import lombok.Getter;
 import jakarta.persistence.GenerationType;
 
 
 @Entity
 @Table(name = "url_info")
-@Getter
 public class UrlInfo {
 
 @Id
@@ -37,4 +34,9 @@ public void setOriginalUrl(String originalUrl){
 }
 public void setShortUrl(String shortUrl){
     this.shortUrl = shortUrl;
- }} 
+ }
+void getUrlInfo(){
+    System.out.println("Original URL: " + originalUrl);
+    System.out.println("Short URL: " + shortUrl);
+}  
+}
