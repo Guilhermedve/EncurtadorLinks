@@ -16,10 +16,10 @@ public class UrlInfo {
 @GeneratedValue(strategy = GenerationType.IDENTITY)
 private Long id;
 
-
+@Column(nullable = false) 
 private String originalUrl;
 
-@Column(unique = true)
+@Column(nullable = false, unique = true, length = 6)
 private String shortUrl;
 
 
